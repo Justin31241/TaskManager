@@ -1,4 +1,5 @@
-let storage = localStorage.getItem('mySavedTasks')
+const storage = localStorage.getItem('mySavedTasks');
+const savedTasksArray = JSON.parse(storage);
 
 
 const taskInput = document.getElementById('task-input');
