@@ -3,17 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Historical Calendar Dashboard</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <label for="fname">Tasks:</label>
-    <input type="text" id="task-input" name="lname"><br><br>
-    <input type="submit" id="task-submit" value="Submit">
+    <div class="calendar-container">
+        <header class="calendar-header">
+            <div class="calendar-nav">
+                <h1>Weekly Schedule</h1>
+                <div class="nav-controls">
+                    <button id="prev-week" class="nav-btn">&lt;</button>
+                    <span id="current-week-display">Loading Week...</span>
+                    <button id="next-week" class="nav-btn">&gt;</button>
+                </div>
+            </div>
+            
+            <div class="input-section">
+                <div class="input-group">
+                    <input type="text" id="task-input" placeholder="Add a plan or task...">
+                    <select id="day-select">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                    </select>
+                    <input type="submit" id="task-submit" value="+ Add">
+                </div>
+            </div>
+        </header>
 
-    <p>Tasks</p>
-    <ul id="task-list"></ul><br>
-    <p>Completed Tasks</p>
-    <ul id="task-list-complete"></ul>
+        <div class="calendar-grid">
+            <div class="calendar-day-column" data-day="Monday"><div class="column-header"><span class="day-label">MON</span></div><div class="task-area"><ul class="task-list active-list"></ul><ul class="task-list completed-list"></ul></div></div>
+            <div class="calendar-day-column" data-day="Tuesday"><div class="column-header"><span class="day-label">TUE</span></div><div class="task-area"><ul class="task-list active-list"></ul><ul class="task-list completed-list"></ul></div></div>
+            <div class="calendar-day-column" data-day="Wednesday"><div class="column-header"><span class="day-label">WED</span></div><div class="task-area"><ul class="task-list active-list"></ul><ul class="task-list completed-list"></ul></div></div>
+            <div class="calendar-day-column" data-day="Thursday"><div class="column-header"><span class="day-label">THU</span></div><div class="task-area"><ul class="task-list active-list"></ul><ul class="task-list completed-list"></ul></div></div>
+            <div class="calendar-day-column" data-day="Friday"><div class="column-header"><span class="day-label">FRI</span></div><div class="task-area"><ul class="task-list active-list"></ul><ul class="task-list completed-list"></ul></div></div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

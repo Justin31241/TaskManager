@@ -1,0 +1,200 @@
+/* Universal Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #3c4043; /* Google standard font color */
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Wide-screen Calendar Container */
+.calendar-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #ffffff;
+}
+
+/* Fixed Header Area */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #dadce0;
+}
+
+.calendar-header h1 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #3c4043;
+}
+
+/* Clean Form Component Groups */
+.input-section {
+    width: auto;
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+    background: #f1f3f4;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+#task-input {
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    outline: none;
+    width: 240px;
+    color: #3c4043;
+}
+
+#day-select {
+    background: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    color: #3c4043;
+    outline: none;
+    cursor: pointer;
+}
+
+#task-submit {
+    background-color: #1a73e8; /* Google Blue */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+#task-submit:hover {
+    background-color: #1557b0;
+}
+
+/* Calendar Grid View (Side-By-Side Columns) */
+.calendar-grid {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+}
+
+/* Individual Day Columns */
+.calendar-day-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #dadce0;
+    min-width: 180px;
+}
+
+.calendar-day-column:last-child {
+    border-right: none;
+}
+
+/* Day Headers matching calendar apps */
+.column-header {
+    text-align: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #dadce0;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+}
+
+.day-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #70757a;
+    letter-spacing: 0.8px;
+}
+
+/* Task Workspace Body */
+.task-area {
+    flex: 1;
+    padding: 12px 8px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.completed-list {
+    border-top: 1px solid #f1f3f4;
+    padding-top: 12px;
+    margin-top: auto; /* Pushes completed items down to the bottom like a history footer */
+}
+
+/* Styling Items like Calendar Blocks */
+li {
+    background: #e8f0fe; /* Light event blue */
+    color: #1a73e8;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-left: 3px solid #1a73e8;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+    word-break: break-word;
+}
+
+.active-list li:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(60,64,67,0.3);
+    background: #d2e3fc;
+}
+
+/* Completed Items Look like Muted Calendar Blocks */
+.completed-list li {
+    background: #f1f3f4 !important;
+    color: #5f6368 !important;
+    border-left-color: #9aa0a6 !important;
+    text-decoration: line-through;
+    cursor: default;
+}
+
+/* Empty helper messages customized out for space */
+.task-list:empty::after {
+    color: #bdc1c6;
+    font-size: 0.75rem;
+    font-style: italic;
+    text-align: center;
+    display: block;
+    padding: 10px 0;
+}
+.active-list:empty::after { content: "No events"; }
+.completed-list:empty::after { content: ""; } /* Keeps it clean if empty */
+
+.calendar-nav { display: flex; align-items: center; gap: 20px; }
+.nav-controls { display: flex; align-items: center; gap: 10px; background: #f1f3f4; padding: 4px 12px; border-radius: 20px; }
+.nav-btn { background: transparent; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; color: #5f6368; padding: 2px 8px; }
+.nav-btn:hover { color: #1a73e8; }
+#current-week-display { font-size: 0.9rem; font-weight: 500; color: #3c4043; min-width: 150px; text-align: center; }
