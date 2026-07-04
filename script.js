@@ -17,6 +17,13 @@ taskSubmit.addEventListener('click', function() {
     const taskText = taskInput.value.trim();
     taskInput.placeholder = '';
 
+    const newTask = {
+        text: taskText,
+        day: selectedDay,
+        year: test,
+        completed: false,
+    };
+
     if (taskText !== '' && taskList.children.length < 5) {
         const li = document.createElement('li');
         li.textContent = taskText;
